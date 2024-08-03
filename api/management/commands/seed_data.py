@@ -18,3 +18,22 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.SUCCESS(f'Successfully created person "{person_name}"'))
             else:
                 self.stdout.write(self.style.WARNING(f'Person "{person_name}" already exists'))
+        
+        new_people = [
+            ("Usain Bolt", "Jamaica"),
+            ("Serena Williams", "United States"),
+            ("Lionel Messi", "Argentina"),
+            ("Naomi Osaka", "Japan"),
+            ("Roger Federer", "Switzerland"),
+            ("Eliud Kipchoge", "Kenya")
+        ]
+        # Seed new people with country information
+        for person_name, country in new_people:
+            person, created = Person.objects.get_or_create(
+                name=person_name,
+                defaults={'country': country}
+            )
+            if created:
+                self.stdout.write(self.style.SUCCESS(f'Successfully created person "{person_name}" from {country}'))
+            else:
+                self.stdout.write(self.style.WARNING(f'Person "{person_name}" already exists'))
