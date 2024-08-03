@@ -5,7 +5,7 @@ doppler run -- python manage.py runserver
 ```
 http://127.0.0.1:8000/api/persons/  
 ```
-doppler run -- python manage.py makemigrations
+python manage.py makemigrations
 doppler run -- python manage.py migrate
 doppler run -- python manage.py seed_data
 ```
