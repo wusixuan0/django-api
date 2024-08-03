@@ -5,11 +5,13 @@ doppler run -- python manage.py runserver
 ```
 http://127.0.0.1:8000/api/persons/  
 ```
+pip install django-q setuptools
+pip freeze > requirements.txt  
 python manage.py makemigrations
 doppler run -- python manage.py migrate
 doppler run -- python manage.py seed_data
 ```
-
+ModuleNotFoundError: No module named 'pkg_resources' -> pip install setuptools  
 running with Gunicorn for render.
 ```
 doppler run -- python -m gunicorn config.asgi:application -k uvicorn.workers.UvicornWorker
