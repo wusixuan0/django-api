@@ -2,16 +2,14 @@ from django.core.management.base import BaseCommand
 from api.models import Person
 
 class Command(BaseCommand):
+    # Person.objects.all().delete()
     help = 'Seeds the database with a predefined list of people'
 
     def handle(self, *args, **options):
         # Predefined list of people to seed
         people_to_seed = [
-            "John Doe",
-            "Jane Smith",
-            "Alice Johnson",
-            "Bob Williams",
-            "Emma Brown"
+            "Simone Biles",
+            "Michael Phelps", "Ato Boldon", "Teddy Riner", "Ma Long", "Andy Murray"
         ]
 
         for person_name in people_to_seed:
